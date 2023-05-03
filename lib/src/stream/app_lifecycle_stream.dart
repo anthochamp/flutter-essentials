@@ -1,19 +1,24 @@
+// Copyright 2023, Anthony Champagne. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 import 'dart:async';
 
 import 'package:flutter/widgets.dart';
 
 export 'package:flutter/widgets.dart' show AppLifecycleState;
 
-class _AppLifecycleObserverStream extends Stream<AppLifecycleState>
+class _ObserverStream extends Stream<AppLifecycleState>
     with WidgetsBindingObserver {
   final _streamController = StreamController<AppLifecycleState>.broadcast();
 
   @override
   StreamSubscription<AppLifecycleState> listen(
-          void Function(AppLifecycleState event)? onData,
-          {Function? onError,
-          void Function()? onDone,
-          bool? cancelOnError}) =>
+    void Function(AppLifecycleState event)? onData, {
+    Function? onError,
+    void Function()? onDone,
+    bool? cancelOnError,
+  }) =>
       _streamController.stream.listen(onData,
           onError: onError, onDone: onDone, cancelOnError: cancelOnError);
 
@@ -24,7 +29,7 @@ class _AppLifecycleObserverStream extends Stream<AppLifecycleState>
 }
 
 class AppLifecycleStream extends Stream<AppLifecycleState> {
-  static final _observersFinalizer = Finalizer<_AppLifecycleObserverStream>(
+  static final _observersFinalizer = Finalizer<_ObserverStream>(
       (observer) => WidgetsBinding.instance.removeObserver(observer));
 
   AppLifecycleStream() {
@@ -33,14 +38,15 @@ class AppLifecycleStream extends Stream<AppLifecycleState> {
     WidgetsBinding.instance.addObserver(_observer);
   }
 
-  final _observer = _AppLifecycleObserverStream();
+  final _observer = _ObserverStream();
 
   @override
   StreamSubscription<AppLifecycleState> listen(
-      void Function(AppLifecycleState event)? onData,
-      {Function? onError,
-      void Function()? onDone,
-      bool? cancelOnError}) {
+    void Function(AppLifecycleState event)? onData, {
+    Function? onError,
+    void Function()? onDone,
+    bool? cancelOnError,
+  }) {
     return _observer.listen(onData,
         onError: onError, onDone: onDone, cancelOnError: cancelOnError);
   }

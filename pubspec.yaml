@@ -1,6 +1,6 @@
-name: flutter_essentials
-publish_to: 'none'
-version: 1.0.0
+name: ac_flutter_essentials
+description: AC Flutter Essentials
+version: 0.1.0
 repository: https://github.com/anthochamp/flutter-essentials
 
 environment:
@@ -9,17 +9,10 @@ environment:
 dependencies:
   flutter: 
     sdk: flutter
-  posix_locale:
-    git: git@github.com:anthochamp/dart-posix-locale.git
-  unicode_locale_id:
-    git: git@github.com:anthochamp/dart-unicode-locale-id.git
 
 dev_dependencies:
-  anthochamp_lints:
-    git: git@github.com:anthochamp/dart-lints.git
+  ac_lints: ^0.1.0
   build_runner: ^2.3.3
-  dart_code_metrics: ^5.7.2
   flutter_test:
     sdk: flutter
   import_sorter: ^4.6.0
-  lints: ^2.0.1

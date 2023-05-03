@@ -1,1 +1,1 @@
-include: package:anthochamp_lints/flutter_lib.yaml
+include: package:ac_lints/flutter_lib.yaml
