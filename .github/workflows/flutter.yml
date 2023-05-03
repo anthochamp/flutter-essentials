@@ -1,4 +1,4 @@
-name: Dart
+name: Flutter
 
 on:
   push:
@@ -9,15 +9,12 @@ on:
 jobs:
   analyze:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-
     steps:
       - uses: actions/checkout@v3
-      - uses: dart-lang/setup-dart@v1.5.0
+      - uses: subosito/flutter-action@v2
 
       - id: install
-        run: dart pub get
+        run: flutter pub get
       - run: dart format --output=none --set-exit-if-changed .
       - run: dart analyze --fatal-infos .
         if: always() && steps.install.outcome == 'success'
@@ -26,14 +23,12 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
 
     steps:
       - uses: actions/checkout@v3
-      - uses: dart-lang/setup-dart@v1.5.0
+      - uses: subosito/flutter-action@v2
 
       - id: install
-        run: dart pub get
-      - run: dart test
+        run: flutter pub get
+      - run: flutter test
         if: always() && steps.install.outcome == 'success'
