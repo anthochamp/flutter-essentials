@@ -1,3 +1,7 @@
+## 0.1.2
+
+- Fix published files
+
 ## 0.1.1
 
 - Update LICENSE's copyright to include contributors and use SPDX file header
