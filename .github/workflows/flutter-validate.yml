@@ -4,6 +4,6 @@ on: [ push, pull_request ]
 
 jobs:
   lint:
-    uses: anthochamp/dev-toolbox/.github/workflows/flutter-lint.yml@fbcb699f29ab8e8ebf83a376ba1e5e8ad3ba9c91
+    uses: anthochamp/dev-toolbox/.github/workflows/flutter-lint.yml@1f24dfa11656d0b2b028f7b069b552c9320fbf81
   test:
-    uses: anthochamp/dev-toolbox/.github/workflows/flutter-test.yml@fbcb699f29ab8e8ebf83a376ba1e5e8ad3ba9c91
+    uses: anthochamp/dev-toolbox/.github/workflows/flutter-test.yml@1f24dfa11656d0b2b028f7b069b552c9320fbf81
