@@ -1,9 +1,11 @@
 name: Validate Flutter project
 
-on: [ push, pull_request ]
+on: 
+  push:
+    branches: [ 'main', 'v[0-9]+', 'v[0-9]+.[0-9]+' ]
+    tags-ignore: [ 'v[0-9]+.[0-9]+.[0-9]+' ]
+  pull_request:
 
 jobs:
-  lint:
-    uses: anthochamp/dev-toolbox/.github/workflows/flutter-lint.yml@4dfcd8d140fb8ea77fd980769843ce4971020bb1
-  test:
-    uses: anthochamp/dev-toolbox/.github/workflows/flutter-test.yml@4dfcd8d140fb8ea77fd980769843ce4971020bb1
+  flutter-validate:
+    uses: anthochamp/dev-toolbox/.github/workflows/flutter-validate.yml@cf8d20746895d6f353cbd936ff46f78086a60faf
