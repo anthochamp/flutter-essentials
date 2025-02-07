@@ -1,14 +1,14 @@
-name: Deploy Flutter library
+name: Validate & Publish
 
 on:
   push:
     tags: [ 'v[0-9]+.[0-9]+.[0-9]+' ]
 
 jobs:
-  flutter-validate:
+  validate:
     uses: anthochamp/dev-toolbox/.github/workflows/flutter-validate.yml@cf8d20746895d6f353cbd936ff46f78086a60faf
-  flutter-publish:
-    needs: flutter-validate
+  publish:
+    needs: validate
     permissions:
       id-token: write
     uses: anthochamp/dev-toolbox/.github/workflows/flutter-lib-publish.yml@cf8d20746895d6f353cbd936ff46f78086a60faf

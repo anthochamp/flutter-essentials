@@ -1,4 +1,4 @@
-name: Validate Flutter project
+name: Validate
 
 on: 
   push:
@@ -7,5 +7,5 @@ on:
   pull_request:
 
 jobs:
-  flutter-validate:
+  validate:
     uses: anthochamp/dev-toolbox/.github/workflows/flutter-validate.yml@cf8d20746895d6f353cbd936ff46f78086a60faf
