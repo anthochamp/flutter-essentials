@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: © 2023 - 2024 Anthony Champagne <dev@anthonychampagne.fr>
+// SPDX-FileCopyrightText: © 2023 - 2026 Anthony Champagne <dev@anthonychampagne.fr>
 //
 // SPDX-License-Identifier: BSD-3-Clause
 
@@ -23,7 +23,7 @@ class _ObserverStream extends Stream<AppLifecycleState>
           onError: onError, onDone: onDone, cancelOnError: cancelOnError);
 
   @override
-  Future<void> didChangeAppLifecycleState(AppLifecycleState state) async {
+  void didChangeAppLifecycleState(AppLifecycleState state) {
     _streamController.add(state);
   }
 }
